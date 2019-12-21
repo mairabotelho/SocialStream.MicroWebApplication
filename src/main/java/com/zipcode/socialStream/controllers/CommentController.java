@@ -3,19 +3,20 @@ package com.zipcode.socialStream.controllers;
 import com.zipcode.socialStream.models.Comment;
 import com.zipcode.socialStream.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Service
-public class CommentService {
+@Controller
+public class CommentController {
 
     private CommentRepository repository;
 
     @Autowired
-    public CommentService(CommentRepository repository) {
+    public CommentController(CommentRepository repository) {
         this.repository = repository;
     }
 
