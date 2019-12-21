@@ -12,9 +12,10 @@ import javax.validation.Valid;
 
 @Controller
 public class VideoController {
-    @Autowired
+  
         private VideoService videoService;
 
+        @Autowired
         public VideoController(VideoService videoService){
             this.videoService = videoService;
         }
@@ -25,9 +26,9 @@ public class VideoController {
 
         }
 
-        @GetMapping("/videos/{videoid}")
-        public @ResponseBody ResponseEntity<Video> show (@PathVariable Long videoID){
-            return new ResponseEntity<>(videoService.show(videoID), HttpStatus.OK);
+        @GetMapping("/videos/{videoId}")
+        public @ResponseBody ResponseEntity<Video> show (@PathVariable Long videoId){
+            return new ResponseEntity<>(videoService.show(videoId), HttpStatus.OK);
         }
 
         @PostMapping("/videos")
@@ -35,8 +36,8 @@ public class VideoController {
             return new ResponseEntity<>(videoService.create(video), HttpStatus.OK);
         }
 
-        @PutMapping("/videos")
-        public ResponseEntity<Video> update(Long videoId, @Valid @RequestBody Video video){
+        @PutMapping("/videos/{videoId}")
+        public ResponseEntity<Video> update(@PathVariable Long videoId, @Valid @RequestBody Video video){
             return new ResponseEntity<>(videoService.update(videoId, video), HttpStatus.OK);
         }
 

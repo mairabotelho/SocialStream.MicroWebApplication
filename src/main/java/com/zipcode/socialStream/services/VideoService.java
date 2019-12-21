@@ -2,7 +2,9 @@ package com.zipcode.socialStream.services;
 
 import com.zipcode.socialStream.models.Video;
 import com.zipcode.socialStream.repositories.VideoRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VideoService {
 
     private VideoRepository repository;
@@ -27,7 +29,7 @@ public class VideoService {
         Video ogVideo = show(videoId);
         ogVideo.setVideoDescription(video.getVideoDescription());
         ogVideo.setVideoName(video.getVideoName());
-        return repository.save(video);
+        return repository.save(ogVideo);
     }
 
     public Boolean delete(Long videoId){
