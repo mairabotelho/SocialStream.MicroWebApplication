@@ -11,3 +11,7 @@
     * can upload new videos
 	* can view list of all videos
 	* can post simple text-comments on a video
+	
+## Set-UP
+
+1. Spring.io - Get dependencies for SpringBoot project (creating the pom.xml)
