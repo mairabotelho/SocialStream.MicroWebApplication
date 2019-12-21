@@ -4,8 +4,8 @@
 * **Purpose** - to demonstrate the construction of a full-stacked web-application
 
 
-### Video Library Application
 
+## Video Library Application
 #### User Stories to Fulfill  
 * As a client, (not logged in) I
     * can upload new videos
