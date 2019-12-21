@@ -2,6 +2,7 @@ package com.zipcode.socialStream.controllers;
 
 import com.zipcode.socialStream.models.Video;
 import com.zipcode.socialStream.services.VideoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import javax.validation.Valid;
 
 @Controller
 public class VideoController {
+    @Autowired
         private VideoService videoService;
 
         public VideoController(VideoService videoService){
