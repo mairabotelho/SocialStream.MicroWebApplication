@@ -14,5 +14,5 @@
 	
 ## Set-UP
 
-1. <a href="https://start.spring.io" target="_blank">Spring.io</a> - Get dependencies for SpringBoot project (creating the pom.xml)
+1. <a href="https://start.spring.io" target="_blank">Start.Spring.io</a> - To Initialize your project and get dependencies for SpringBoot project (creating the pom.xml)
 	* Use <b>Generate</b> to get Zipfile, which contains necessary files for project, such as .gitignore. 
