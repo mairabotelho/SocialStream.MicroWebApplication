@@ -15,4 +15,5 @@
 ## Set-UP
 
 1. <a href="https://start.spring.io" target="_blank">Start.Spring.io</a> - To Initialize your project and get dependencies for SpringBoot project (creating the pom.xml)
-	* Use <b>Generate</b> to get Zipfile, which contains necessary files for project, such as .gitignore. 
+	* Use <b>Generate</b> to get Zipfile, which contains necessary files for project, such as .gitignore.
+		* Gitignore.io is a text file that tells Git which files or folders to ignore in a project.
