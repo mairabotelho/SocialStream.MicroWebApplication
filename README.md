@@ -1,5 +1,5 @@
-# SocialStream
-# Micro Web Application - Server
+# SocialStream: Micro Web Application - Server
+
 * **Objective** - to create an implementation of a small web service
 * **Purpose** - to demonstrate the construction of a full-stacked web-application
 
