@@ -16,12 +16,16 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    public UserController(UserService service) {
+        this.service = service;
+    }
+
     @PostMapping("/users")
     public ResponseEntity<User> addUser(@Valid @RequestBody User user){
-        Iterable<User> list = service.findAll();
-        for(User u : list)
-            if(u.getUsername().equals(user.getUsername()))
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        Iterable<User> list = service.findAll();
+//        for(User u : list)
+//            if(u.getUsername().equals(user.getUsername()))
+//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
     }
