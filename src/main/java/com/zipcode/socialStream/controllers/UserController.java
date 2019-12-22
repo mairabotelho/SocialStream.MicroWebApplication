@@ -21,12 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> addUser(@Valid @RequestBody User user){
-//        Iterable<User> list = service.findAll();
-//        for(User u : list)
-//            if(u.getUsername().equals(user.getUsername()))
-//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
+    public ResponseEntity<User> addUser(@Valid @RequestBody User user) throws Exception {
         return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
     }
 
@@ -48,5 +43,15 @@ public class UserController {
     @DeleteMapping("/users")
     public ResponseEntity<Boolean> deleteUser(@RequestParam String username){
         return new ResponseEntity<>(service.deleteByUsername(username), HttpStatus.OK);
+    }
+
+    @PutMapping("/login/{username}")
+    public ResponseEntity<User> login(@PathVariable String username) {
+        return new ResponseEntity<>(service.login(username), HttpStatus.OK);
+    }
+
+    @PutMapping("/logout/{username}")
+    public ResponseEntity<User> logout(@PathVariable String username) {
+        return new ResponseEntity<>(service.logout(username), HttpStatus.OK);
     }
 }
