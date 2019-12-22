@@ -34,7 +34,7 @@ public class UserControllerTest {
     UserService mockService;
 
     private List<User> userList;
-    private User user1, user2, user3;
+    private User user1, user2, user3, update;
 
     @Before
     public void setUp() {
@@ -52,6 +52,8 @@ public class UserControllerTest {
         userList.add(user1);
         userList.add(user2);
         userList.add(user3);
+
+        update = new User("mUser", "Mark", "Mock", "pass","mock@email");
     }
 
     @Test
@@ -97,10 +99,13 @@ public class UserControllerTest {
     @Test
     public void testUpdateUser() throws Exception {
 
-        User update = new User("mUser", "Mark", "Mock", "pass","mock@email");
-
-        when(mockService.findByUsername(user1.getUsername())).thenReturn(user1);
         when(mockService.updateUser(user1.getUsername(), update)).thenReturn(user1);
+
+        mockMvc.perform(put("/users/{username}/", user1.getUsername())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(update)))
+                .andExpect(status().isOk());
+
     }
 
     @Test
@@ -126,6 +131,7 @@ public class UserControllerTest {
                 .andExpect(status().isOk());
 
         verify(mockService, times(1)).login("mUser");
+
     }
 
     @Test
