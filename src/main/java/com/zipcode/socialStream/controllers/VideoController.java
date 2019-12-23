@@ -42,7 +42,7 @@ public class VideoController {
         }
 
         @DeleteMapping("/videos")
-        public ResponseEntity<Boolean> delete(Long videoId){
+        public ResponseEntity<Boolean> delete(@Valid @RequestParam Long videoId){
             return new ResponseEntity<>(videoService.delete(videoId), HttpStatus.OK);
         }
 }
