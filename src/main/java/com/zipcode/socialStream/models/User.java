@@ -16,30 +16,28 @@ public class User {
     private String lastName;
     private String password;
     private String emailAddress;
-    private String loggedIn;
+    private Boolean loggedIn;
 
     // Nullary Constructor
     public User(){
 
     }
 
-    public User(Long userId, String username, String firstName, String lastName, String password, String emailAddress, String loggedIn) {
+    public User(Long userId, String username, String firstName, String lastName, String password, String emailAddress) {
         this.userId = userId;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.emailAddress = emailAddress;
-        this.loggedIn = loggedIn;
     }
 
-    public User(String username, String firstName, String lastName, String password, String emailAddress, String loggedIn) {
+    public User(String username, String firstName, String lastName, String password, String emailAddress) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.emailAddress = emailAddress;
-        this.loggedIn = loggedIn;
     }
 
 
@@ -91,11 +89,11 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public String getLoggedIn() {
+    public Boolean getLoggedIn() {
         return loggedIn;
     }
 
-    public void setLoggedIn(String loggedIn) {
+    public void setLoggedIn(Boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
 }

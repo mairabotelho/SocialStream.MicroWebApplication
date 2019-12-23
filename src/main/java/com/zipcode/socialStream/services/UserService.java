@@ -11,8 +11,12 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public User addUser(User user){
-        return repository.save(user);
+    public User addUser(User user) throws Exception {
+        if (repository.findByUsername(user.getUsername()) == null) {
+            return repository.save(user);
+        }
+
+        throw new Exception("Username already exists!");
     }
 
     public User findByUsername(String username){
@@ -38,13 +42,25 @@ public class UserService {
     }
 
     public Boolean deleteByUsername(String username){
-        Iterable<User> list = findAll();
-        for(User user : list)
-            if(user.getUsername().equals(username)) {
-                repository.delete(user);
-                return true;
-            }
+        User user = findByUsername(username);
+        if(user != null) {
+            repository.delete(user);
+            return true;
+        }
+
         return false;
+    }
+
+    public User login(String username) {
+        User original = repository.findByUsername(username);
+        original.setLoggedIn(true);
+        return repository.save(original);
+    }
+
+    public User logout(String username) {
+        User original = repository.findByUsername(username);
+        original.setLoggedIn(false);
+        return repository.save(original);
     }
 
 }
