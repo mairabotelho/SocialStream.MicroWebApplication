@@ -2,11 +2,12 @@ package com.zipcode.socialStream.services;
 
 import com.zipcode.socialStream.models.Video;
 import com.zipcode.socialStream.repositories.VideoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class VideoService {
-
+    @Autowired
     private VideoRepository repository;
 
     public VideoService(VideoRepository repository){
