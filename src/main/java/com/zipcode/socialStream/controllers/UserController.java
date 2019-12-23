@@ -45,7 +45,7 @@ public class UserController {
         return new ResponseEntity<>(service.deleteByUsername(username), HttpStatus.OK);
     }
 
-    @PutMapping("/login/{username}")
+    @PutMapping("/login1/{username}")
     public ResponseEntity<User> login(@PathVariable String username) {
         return new ResponseEntity<>(service.login(username), HttpStatus.OK);
     }
