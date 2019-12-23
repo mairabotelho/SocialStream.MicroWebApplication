@@ -126,7 +126,7 @@ public class UserControllerTest {
     public void testLogin() throws Exception {
         when(mockService.login(user1.getUsername())).thenReturn(user1);
 
-        mockMvc.perform(put("/login/{username}", "mUser")
+        mockMvc.perform(put("/login1/{username}", "mUser")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
