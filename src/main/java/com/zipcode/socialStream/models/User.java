@@ -1,7 +1,5 @@
 package com.zipcode.socialStream.models;
 
-import com.sun.tools.javah.Gen;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
