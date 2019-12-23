@@ -31,19 +31,6 @@ public class VideoServiceTest {
     @Test
     public void testCreate(){
         //Given
-        HttpStatus expected = HttpStatus.CREATED;
-        Video expectedVideo = new Video();
-        BDDMockito
-                .given(service.create(expectedVideo))
-                .willReturn(expectedVideo);
-        //When
-        ResponseEntity<Video> response = controller.create(expectedVideo);
-        HttpStatus actual = response.getStatusCode();
-        Video actualVideo = response.getBody();
-
-        //Then
-        assertEquals(expected, actual);
-        assertEquals(expectedVideo, actualVideo);
     }
 
 }

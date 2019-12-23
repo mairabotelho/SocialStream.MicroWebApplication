@@ -34,7 +34,7 @@ public class UserService {
         if(user.getEmailAddress() != null)
             ogUser.setEmailAddress(user.getEmailAddress());
 
-        return repository.save(user);
+        return repository.save(ogUser);
     }
 
     public Iterable<User> findAll(){
