@@ -14,17 +14,18 @@ public class Comment {
     private Long commentId;
     private Long videoId;
     private String comment;
+    private String reply = null;
     private Long userId;
     private Date createDate;
 
-    public Comment(Long videoId, String comment, Long userId, Date createDate) {
+    public Comment(Long videoId, String comment, String reply, Long userId) {
         this.videoId = videoId;
         this.comment = comment;
         this.userId = userId;
         this.createDate = createDate;
     }
 
-    public Comment(Long commentId, Long videoId, String comment, Long userId, Date createDate) {
+    public Comment(Long commentId, Long videoId, String comment, String reply, Long userId, Date createDate) {
         this.videoId = videoId;
         this.comment = comment;
         this.userId = userId;
@@ -58,6 +59,14 @@ public class Comment {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 
     public Long getUserId() {
