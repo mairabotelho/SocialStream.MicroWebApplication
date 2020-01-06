@@ -9,4 +9,6 @@ import java.util.List;
 public interface CommentRepository extends CrudRepository<Comment, Long> {
     List<Comment> getAllByVideoId(Long videoId);
     List<Comment> getAllByCommentId(Long commentId);
+    List<Comment> getAllByUserId(Long userId);
+
 }
