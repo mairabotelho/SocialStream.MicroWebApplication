@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 
 @Service
@@ -31,10 +32,22 @@ public class VideoService {
         return repository.findByVideoId(videoId);
     }
 
-    public Video create(Video video){
-        return repository.save(video);
-    }
+    public Video create(MultipartFile multipartFile, String videoName, String videoDescription)  {
+        Video video = new Video(videoName,videoDescription,null);
+        video = repository.save(video);
+        File file = null;
+        try{
+            file = S3StorageService.convertToFile(multipartFile, video.getVideoId());
+            String location = S3StorageService.upload(file);
+            video.setLocation(location);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            if(file != null) file.delete();
+        }
+        return update(video.getVideoId(), video);
 
+    }
     public Video update(Long videoId, Video video){
         Video ogVideo = show(videoId);
         ogVideo.setVideoDescription(video.getVideoDescription());
