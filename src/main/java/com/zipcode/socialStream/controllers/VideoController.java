@@ -18,9 +18,9 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+        @RequestMapping("videos/all")
         public ResponseEntity<Iterable<Video>> index(){
             return new ResponseEntity<>(videoService.index(), HttpStatus.OK);
-
         }
 
         @GetMapping("/videos/{videoId}")
@@ -29,7 +29,9 @@ public class VideoController {
         }
 
         @PostMapping("/videos")
-        public ResponseEntity<Video> create(@Valid @RequestParam MultipartFile file, @RequestParam String videoName, @RequestParam String videoDescription){
+        public ResponseEntity<Video> create(@Valid @RequestParam("file") MultipartFile file,
+                                            @RequestParam("videoName") String videoName,
+                                            @RequestParam("videoDescription") String videoDescription){
             return new ResponseEntity<>(videoService.create(file, videoName, videoDescription), HttpStatus.OK);
         }
 
