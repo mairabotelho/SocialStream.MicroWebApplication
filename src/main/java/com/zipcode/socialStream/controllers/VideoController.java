@@ -18,13 +18,14 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+        @GetMapping("/videos/all")
         public ResponseEntity<Iterable<Video>> index(){
             return new ResponseEntity<>(videoService.index(), HttpStatus.OK);
 
         }
 
         @GetMapping("/videos/{videoId}")
-        public @ResponseBody ResponseEntity<Video> show (@PathVariable Long videoId){
+        public ResponseEntity<Video> show (@PathVariable Long videoId){
             return new ResponseEntity<>(videoService.show(videoId), HttpStatus.OK);
         }
 
