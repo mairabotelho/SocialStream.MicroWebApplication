@@ -7,33 +7,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("")
 public class VideoController {
-  
-        private VideoService videoService;
+    @Autowired
+    private VideoService videoService;
 
-        @Autowired
-        public VideoController(VideoService videoService){
-            this.videoService = videoService;
-        }
-
-        @GetMapping("/videos")
+        @RequestMapping("videos/all")
         public ResponseEntity<Iterable<Video>> index(){
             return new ResponseEntity<>(videoService.index(), HttpStatus.OK);
-
         }
 
         @GetMapping("/videos/{videoId}")
-        public @ResponseBody ResponseEntity<Video> show (@PathVariable Long videoId){
+        public ResponseEntity<Video> show (@PathVariable Long videoId){
             return new ResponseEntity<>(videoService.show(videoId), HttpStatus.OK);
         }
 
         @PostMapping("/videos")
-        public ResponseEntity<Video> create(@Valid @RequestBody Video video){
-            return new ResponseEntity<>(videoService.create(video), HttpStatus.OK);
+        public ResponseEntity<Video> create(@Valid @RequestParam("file") MultipartFile file,
+                                            @RequestParam("videoName") String videoName,
+                                            @RequestParam("videoDescription") String videoDescription){
+            return new ResponseEntity<>(videoService.create(file, videoName, videoDescription), HttpStatus.OK);
         }
 
         @PutMapping("/videos/{videoId}")

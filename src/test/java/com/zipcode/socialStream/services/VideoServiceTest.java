@@ -23,10 +23,10 @@ public class VideoServiceTest {
     private VideoService service;
     private VideoController controller;
 
-    @Before
-    public void setup(){
-        this.controller = new VideoController(service);
-    }
+//    @Before
+//    public void setup(){
+//        this.controller = new VideoController(service);
+//    }
 
     @Test
     public void testCreate(){
