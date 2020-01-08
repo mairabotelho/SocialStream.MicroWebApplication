@@ -22,6 +22,11 @@ public class UserController {
         this.service = service;
     }
 
+    @GetMapping("hello")
+    public ResponseEntity<String> hello(){
+        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<User> addUser(@Valid @RequestBody User user) throws Exception {
         return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
@@ -32,6 +37,10 @@ public class UserController {
         return new ResponseEntity<>(service.login(loginRequest), HttpStatus.OK);
     }
 
+    @GetMapping("/users")
+    public ResponseEntity<Iterable<User>> findAll(){
+        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
+    }
 
 
 
@@ -40,14 +49,14 @@ public class UserController {
         return new ResponseEntity<>(service.findByUsername(username), HttpStatus.OK);
     }
 
+    @GetMapping("/users/current")
+    public ResponseEntity<String> getUser(){
+        return new ResponseEntity<>(service.getCurrentUser(), HttpStatus.OK);
+    }
+
     @PutMapping("/users/{username}")
     public ResponseEntity<User> updateUser(@PathVariable String username, @Valid @RequestBody User user){
         return new ResponseEntity<>(service.updateUser(username, user), HttpStatus.OK);
-    }
-
-    @GetMapping("/users")
-    public ResponseEntity<Iterable<User>> findAll(){
-        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
     @DeleteMapping("/users")

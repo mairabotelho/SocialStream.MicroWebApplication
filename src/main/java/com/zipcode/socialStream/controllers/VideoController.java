@@ -24,7 +24,7 @@ public class VideoController {
         }
 
         @GetMapping("/videos/{videoId}")
-        public @ResponseBody ResponseEntity<Video> show (@PathVariable Long videoId){
+        public ResponseEntity<Video> show (@PathVariable Long videoId){
             return new ResponseEntity<>(videoService.show(videoId), HttpStatus.OK);
         }
 
