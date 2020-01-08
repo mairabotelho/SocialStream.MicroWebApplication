@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = { "http://localhost:4200", "https://cfapps.io", "https://social-stream-ui.cfapps.io", "https://social-stream-app.cfapps.io" })
 @Controller
 public class UserController {
 
