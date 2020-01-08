@@ -3,7 +3,7 @@ package com.zipcode.socialStream.models;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,11 +20,11 @@ public class User {
     private String emailAddress;
 
     // Nullary Constructor
-    public User(){
+    public Users(){
 
     }
 
-    public User(Long userId, String username, String firstName, String lastName, String password, String emailAddress) {
+    public Users(Long userId, String username, String firstName, String lastName, String password, String emailAddress) {
         this.userId = userId;
         this.username = username;
         this.firstName = firstName;
@@ -33,7 +33,7 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public User(String username, String firstName, String lastName, String password, String emailAddress) {
+    public Users(String username, String firstName, String lastName, String password, String emailAddress) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

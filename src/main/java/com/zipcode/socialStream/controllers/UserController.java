@@ -1,7 +1,7 @@
 package com.zipcode.socialStream.controllers;
 
 import com.zipcode.socialStream.dto.LoginRequest;
-import com.zipcode.socialStream.models.User;
+import com.zipcode.socialStream.models.Users;
 import com.zipcode.socialStream.services.AuthenticationResponse;
 import com.zipcode.socialStream.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> addUser(@Valid @RequestBody User user) {
-        return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
+    public ResponseEntity<Users> addUser(@Valid @RequestBody Users users) {
+        return new ResponseEntity<>(service.addUser(users), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
@@ -38,14 +38,14 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<Iterable<User>> findAll(){
+    public ResponseEntity<Iterable<Users>> findAll(){
         return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
 
 
     @GetMapping("/users/{username}")
-    public ResponseEntity<User> findByUsername(@PathVariable String username){
+    public ResponseEntity<Users> findByUsername(@PathVariable String username){
         return new ResponseEntity<>(service.findByUsername(username), HttpStatus.OK);
     }
 
@@ -55,8 +55,8 @@ public class UserController {
     }
 
     @PutMapping("/users/{username}")
-    public ResponseEntity<User> updateUser(@PathVariable String username, @Valid @RequestBody User user){
-        return new ResponseEntity<>(service.updateUser(username, user), HttpStatus.OK);
+    public ResponseEntity<Users> updateUser(@PathVariable String username, @Valid @RequestBody Users users){
+        return new ResponseEntity<>(service.updateUser(username, users), HttpStatus.OK);
     }
 
     @DeleteMapping("/users")
