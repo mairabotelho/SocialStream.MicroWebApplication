@@ -1,9 +1,6 @@
 package com.zipcode.socialStream.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,13 +8,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
-
+    @Column
     private String username;
+    @Column
     private String firstName;
+    @Column
     private String lastName;
+    @Column
     private String password;
+    @Column
     private String emailAddress;
-    private Boolean loggedIn;
 
     // Nullary Constructor
     public User(){
@@ -90,11 +90,4 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public Boolean getLoggedIn() {
-        return loggedIn;
-    }
-
-    public void setLoggedIn(Boolean loggedIn) {
-        this.loggedIn = loggedIn;
-    }
 }
