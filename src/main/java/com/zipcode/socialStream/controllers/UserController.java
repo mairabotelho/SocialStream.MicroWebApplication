@@ -22,6 +22,11 @@ public class UserController {
         this.service = service;
     }
 
+    @GetMapping("hello")
+    public ResponseEntity<String> hello(){
+        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+    }
+
     @PostMapping("/signup")
     public ResponseEntity<User> addUser(@Valid @RequestBody User user) throws Exception {
         return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
