@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<User> addUser(@Valid @RequestBody User user) throws Exception {
+    public ResponseEntity<User> addUser(@Valid @RequestBody User user) {
         return new ResponseEntity<>(service.addUser(user), HttpStatus.CREATED);
     }
 
