@@ -18,7 +18,6 @@ public class DataSourceConfig{
 
     @Bean
     public DataSource dataSource() {
-
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setUsername(USER_NAME);
         hikariConfig.setPassword(PASSWORD);
