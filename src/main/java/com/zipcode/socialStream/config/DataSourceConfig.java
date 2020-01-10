@@ -22,7 +22,7 @@ public class DataSourceConfig{
         hikariConfig.setUsername(USER_NAME);
         hikariConfig.setPassword(PASSWORD);
         hikariConfig.setJdbcUrl(URL);
-        hikariConfig.setDriverClassName("org.postgresql.Driver");
+        hikariConfig.setDriverClassName("com.mysql.jdbc.Driver");
 
         return new HikariDataSource(hikariConfig);
     }
