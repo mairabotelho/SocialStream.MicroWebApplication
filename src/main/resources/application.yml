@@ -22,18 +22,18 @@ spring:
 spring:
   profiles: cloud
   datasource:
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
 
 ---
 
 spring:
-  profiles: local
+  profiles: cloud
   datasource:
     url: ${DATABASE_URL}
     username: ${DATABASE_USERNAME}
